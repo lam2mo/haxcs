@@ -365,9 +365,12 @@ class Game:
 
     @staticmethod
     def print_hof():
-        f = open(HISTORY_FILENAME, "rb")
-        all_games = pickle.load(f)
-        f.close()
+        try:
+            f = open(HISTORY_FILENAME, "rb")
+            all_games = pickle.load(f)
+            f.close()
+        except IOError:
+            all_games = []
         all_games.sort()
         all_games.reverse()
         print ("Hall of fame:")

@@ -14,7 +14,7 @@ you were looking for a launching pad to write your own roguelike, it shouldn't
 be hard to take this project and adapt it to a different theme.
 
 If you are interested in extending it, feel free to fork and edit to your
-heart's content. You may of course submit a merge request if you think I would
+heart's content. You may of course submit a pull request if you think I would
 be interested in having your changes in my version; however, this is a project I
 am pursuing for my own amusement and satisfaction, so I am likely to be
 somewhat resistant to accepting others' changes to it.

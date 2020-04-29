@@ -31,8 +31,8 @@ def main():
         height,width = stdscr.getmaxyx()
         if height < 30 or width < 80:
             curses.endwin()
-            print "Your terminal is too small"
-            print "Min 80 by 30, yours is " + str(width) + " by " + str(height)
+            print("Your terminal is too small")
+            print("Min 80 by 30, yours is " + str(width) + " by " + str(height))
             return
         curses.cbreak()
         curses.noecho()

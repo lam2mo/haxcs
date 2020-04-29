@@ -24,6 +24,8 @@ import curses
 from game import Game
 
 def main():
+
+    # initialize screen and check for minimum size
     stdscr = curses.initscr()
     try:
         height,width = stdscr.getmaxyx()
@@ -31,7 +33,7 @@ def main():
             curses.endwin()
             print "Your terminal is too small"
             print "Min 80 by 30, yours is " + str(width) + " by " + str(height)
-            return;
+            return
         curses.cbreak()
         curses.noecho()
         stdscr.keypad(1)
@@ -52,5 +54,6 @@ def main():
         stdscr.keypad(0)
         curses.echo()
         curses.endwin()
+
 main()
 

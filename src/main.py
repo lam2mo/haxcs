@@ -24,18 +24,33 @@ import curses
 from game import Game
 
 def main():
+    stdscr = curses.initscr()
+    try:
+        height,width = stdscr.getmaxyx()
+        if height < 30 or width < 80:
+            curses.endwin()
+            print "Your terminal is too small"
+            print "Min 80 by 30, yours is " + str(width) + " by " + str(height)
+            return;
+        curses.cbreak()
+        curses.noecho()
+        stdscr.keypad(1)
 
-    # initialize game (loading previous savegame if present)
-    random.seed()
-    main_game = Game.load_savegame()
-    if main_game is None:
-        main_game = Game()
+        # initialize game (loading previous savegame if present)
+        random.seed()
+        main_game = Game.load_savegame()
+        if main_game is None:
+            main_game = Game()
 
-    # main game loop
-    curses.wrapper(main_game.run)
+        # main game loop
+        curses.wrapper(main_game.run)
 
-    # print hall of fame
-    Game.print_hof()
-
+        # print hall of fame
+        Game.print_hof()
+    finally:
+        curses.nocbreak()
+        stdscr.keypad(0)
+        curses.echo()
+        curses.endwin()
 main()
 
